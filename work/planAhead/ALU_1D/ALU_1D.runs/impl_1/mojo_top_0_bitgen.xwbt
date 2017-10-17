@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=C:\Users\NPStudent\Desktop\ALU_1D\work\planAhead\ALU_1D\ALU_1D.runs\impl_1\mojo_top_0_routed.ncd
+OUTFILE=C:\Users\NPStudent\Desktop\ALU_1D\work\planAhead\ALU_1D\ALU_1D.runs\impl_1\mojo_top_0.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=C:\Users\NPStudent\Desktop\ALU_1D\work\planAhead\ALU_1D\ALU_1D.runs\impl_1
+LICENSE=WebPack
+USER_INFO=211420172_0_0_579

@@ -1,0 +1,39 @@
+module boolean (
+    input inputA[8],  // inputA 8 bits
+    input inputB[8],  // inputB 8 bits
+    input alufn[4],  // alufn[3:0] 4bits
+    output out[8] // output 8 bits
+  ) {
+
+  always {
+    case(alufn){
+      
+      //NOR case
+      4h01: out = ~(inputA|inputB);
+    
+      //XOR case
+      4h06: out = inputA^inputB;
+    
+      //NAND case
+      4h07: out = ~(inputA&inputB);
+      
+      //AND case 
+      4h08: out = inputA & inputB;
+      
+      //XNOR case 
+      4h09: out = ~(inputA^inputB);
+      
+      //buffer A case
+      4h0A: out = inputA;
+      
+      //buffer B case 
+      4h0C: out = inputB;
+      
+      //OR case
+      4h0E: out = inputA|inputB;
+    
+      //default case
+      default: out = 8x{0};
+    }
+  }
+}
