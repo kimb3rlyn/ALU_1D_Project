@@ -50,11 +50,11 @@ module mojo_top (
    
     io_led[2] = io_dip[2];
     io_led[1] = io_dip[1];
-            
-    //7Segment display 
+
+    //Different Cases for manual Testing 
     case(io_dip[0][5:4]){
       2b01: //Boolean
-        seg.values = {4h5,4h7,4h7,4h6};
+        seg.values = {4h5,4h7,4h7,4h6}; // Display BOOL
         //boolean instaniation
         bool.inputA = io_dip[2];
         bool.inputB = io_dip[1];
@@ -63,7 +63,7 @@ module mojo_top (
         //output 
         io_led[0] = bool.out; 
         
-        //default of other function 
+        //default of other cases 
         add.a = 8h0;
         add.b = 8h0;
         add.alufn = 8h0;
@@ -74,12 +74,14 @@ module mojo_top (
           
        2b00: //ADDER
         seg.values = {4h0,4h1,4h1,4hA}; //displays ADD
+        //adder instanitation
         add.a = io_dip[2];
         add.b = io_dip[1];
         add.alufn = io_dip[0][0];
+        //adder output
         io_led[0] = add.op;
         
-        //default of other functions
+        //default of other cases
         compare.z = 0;
         compare.v = 0;
         compare.n = 0;
@@ -91,10 +93,12 @@ module mojo_top (
         
       2b11: //comparator
         seg.values = {4h2,4h3,4h3,4h4}; //displays CMP
+        //comparator instaniation
         compare.z = add.z;
         compare.v = add.v;
         compare.n = add.n;
         compare.alufn = io_dip[0][2:1];
+        //comparator output
         io_led[0] = compare.op;
         
         add.a = io_dip[2];
